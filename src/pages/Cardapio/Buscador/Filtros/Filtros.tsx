@@ -9,19 +9,19 @@ interface Props {
 }
 
 export default function Filtros({ filtro, setFiltro }: Props) {
-    function selecionarFiltro(opcao: IOpcao) {
-        return opcao.id === filtro ? setFiltro(null) : setFiltro(opcao.id);
-    }
-    return <div className={styles.filtros} >
-        {filtros.map((f) => <button
+	function selecionarFiltro(opcao: IOpcao) {
+		return opcao.id === filtro ? setFiltro(null) : setFiltro(opcao.id);
+	}
+	return <div className={styles.filtros} >
+		{filtros.map((f) => <button
 
-            className={classNames({
-                [styles.filtros__filtro]: true,
-                [styles['filtros__filtro--ativo']]: f.id === filtro
-            })}
-            //className={`${styles.filtros__filtro} ${f.id === filtro ? styles['filtros__filtro--ativo'] : ""} `}
-            onClick={() => selecionarFiltro(f)}
-            key={f.id}>{f.label}</button>)
-        }
-    </div >
+			className={classNames({
+				[styles.filtros__filtro]: true,
+				[styles['filtros__filtro--ativo']]: f.id === filtro
+			})}
+			//className={`${styles.filtros__filtro} ${f.id === filtro ? styles['filtros__filtro--ativo'] : ""} `}
+			onClick={() => selecionarFiltro(f)}
+			key={f.id}>{f.label}</button>)
+		}
+	</div >;
 }
